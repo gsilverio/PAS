@@ -1,0 +1,38 @@
+@startuml B3-videoRetrival
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/msql_server.puml
+!include FONTAWESOME/users.puml
+
+Person(personAlias, "Usuário", "Interage com a aplicação para buscar vídeos")
+System_Boundary(c1, "Sistema", "Sistema que organiza e entrega vídeos de acordo com a descrição do usuário") {
+
+    Container(frontendAlias, "Frontend", "React", "Interface de usuário para interação")
+    Container(apiAlias, "Backend", "Python", "API para processamento de dados e lógica de negócios")
+    Container(clipAlias, "CLIP (Contrastive Language-Image Pretraining)", "CLIP", "Modelo de aprendizado de máquina para combinar texto e imagens")
+    ContainerDb(db, "Database", "MySQL", "Banco de dados armazenando vídeos e metadados", $sprite="msql_server")
+
+}
+
+Rel(personAlias, frontendAlias, "Usuário descreve o que será localizado nos vídeos", "Usa a interface para buscar")
+Rel(frontendAlias, apiAlias, "Solicita o conteúdo conforme a descrição", "Solicitação via API")
+Rel(apiAlias, clipAlias, "Interage com CLIP para associar texto com imagens", "Processa as solicitações de conteúdo")
+Rel(clipAlias, db, "Consulta o banco de dados para obter vídeos", "Recupera vídeos conforme a descrição do usuário")
+
+skinparam backgroundColor #F4F4F4
+skinparam nodeBackgroundColor #FFFFFF
+skinparam nodeBorderColor #888888
+skinparam nodeFontColor #333333
+skinparam nodeFontSize 12
+skinparam classFontSize 12
+skinparam classFontColor #333333
+skinparam rectangleBackgroundColor #F9F9F9
+skinparam rectangleBorderColor #BBBBBB
+skinparam arrowColor #5D5D5D
+skinparam arrowFontColor #5D5D5D
+skinparam arrowFontSize 10
+
+@enduml
