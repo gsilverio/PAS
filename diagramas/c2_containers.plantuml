@@ -1,0 +1,51 @@
+@startuml B3-videoRetrival
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/msql_server.puml
+!include FONTAWESOME/users.puml
+
+Person(personAlias, "Usuário", "Interage com a aplicação para buscar vídeos")
+Person(personAdminAlias, "Admin", "Add video no dataset")
+System_Boundary(c1, "Interface Usuario", " ") {
+    Container(frontendAlias, "Aplicação SinglePage", "React + typescript", "Interface de usuário para interação")
+}
+
+System_Boundary(c2, "API") {
+    Container(apiAlias, "Backend", "Python", "API para processamento de dados e lógica de negócios")
+
+}
+
+System_Boundary(c3, "CLIP-AI") {
+    Container(clipAlias, "MODELO IA", "OPENAI", "Banco de dados armazenando vídeos e metadados", $sprite="msql_server")
+}
+
+System_Boundary(c4, "Database") {
+    ContainerDb(db, "Database", "MySQL", "Banco de dados armazenando vídeos e metadados", $sprite="msql_server")
+}
+
+Container(clipAlias, "CLIP (Contrastive Language-Image Pretraining)", "CLIP", "Modelo de aprendizado de máquina para combinar texto e imagens")
+
+Rel(personAlias, frontendAlias, "Usuário descreve o que será localizado nos vídeos", "Usa a interface para buscar")
+Rel(frontendAlias, apiAlias, "Faz solicitação API para ", "http/json")
+Rel(personAdminAlias, clipAlias, "Insere novos videos no dataset")
+
+Rel(apiAlias, db, "Interage com database para trazer o que o usuario requisitou", "Processa as solicitações de conteúdo")
+Rel(clipAlias, db, "Adiciona os videos juntamente com seus frames ao", " ")
+
+skinparam backgroundColor #F4F4F4
+skinparam nodeBackgroundColor #FFFFFF
+skinparam nodeBorderColor #888888
+skinparam nodeFontColor #333333
+skinparam nodeFontSize 12
+skinparam classFontSize 12
+skinparam classFontColor #333333
+skinparam rectangleBackgroundColor #F9F9F9
+skinparam rectangleBorderColor #BBBBBB
+skinparam arrowColor #5D5D5D
+skinparam arrowFontColor #5D5D5D
+skinparam arrowFontSize 10
+
+@enduml
