@@ -1,0 +1,37 @@
+{
+    "video": "video3",
+    "descriptions": [
+        {
+            "frame": "frame_0000.jpg",
+            "description": "a red square in a room with a red light"
+        },
+        {
+            "frame": "frame_0001.jpg",
+            "description": "a green square in a room with a light coming from the ceiling"
+        },
+        {
+            "frame": "frame_0002.jpg",
+            "description": "a screenshot of a building with a green door"
+        },
+        {
+            "frame": "frame_0003.jpg",
+            "description": "a purple and white geometric pattern with a white background"
+        },
+        {
+            "frame": "frame_0004.jpg",
+            "description": "a pair of purple plastic plates"
+        },
+        {
+            "frame": "frame_0005.jpg",
+            "description": "a purple and white striped background"
+        },
+        {
+            "frame": "frame_0006.jpg",
+            "description": "a blue and white wall with a window"
+        },
+        {
+            "frame": "frame_0007.jpg",
+            "description": "a large circular mirror with a light shining through it"
+        }
+    ]
+}

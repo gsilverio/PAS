@@ -1,31 +1,39 @@
 import os
+from extract_frames import extract_frames
+from generate_descriptions import generate_descriptions_from_frames
+from save_descriptions import save_descriptions_to_json
 
-# Caminho do vídeo
-video_path = 'path_to_your_video.mp4'
-output_dir = 'extracted_frames'
+def process_all_videos(video_dir, output_base_dir, output_json_dir):
+    for video_name in os.listdir(video_dir):
+        video_path = os.path.join(video_dir, video_name)
+        
+        if os.path.isfile(video_path) and video_name.endswith(('.mp4', '.avi', '.mov')):
+            print(f"Processando vídeo: {video_name}")
 
-# Extraindo os frames do vídeo
-extract_frames(video_path, output_dir, interval=1)
+            # Criar diretório para armazenar frames desse vídeo
+            output_dir = os.path.join(output_base_dir, video_name.split('.')[0])
+            os.makedirs(output_dir, exist_ok=True)
 
-# Gerar o embedding do texto (descrição fornecida pelo usuário)
-description = "Homem andando a cavalo"
-text_embedding = get_text_embedding(description)
+            # Passo 1: Extrair frames
+            extract_frames(video_path, output_dir)
 
-# Comparando os frames com o texto
-frame_files = os.listdir(output_dir)
-similarities = []
+            # Passo 2: Gerar descrições dos frames
+            descriptions = generate_descriptions_from_frames(output_dir)
 
-for frame_file in frame_files:
-    frame_path = os.path.join(output_dir, frame_file)
-    image_embedding = get_image_embedding(frame_path)
+            # Passo 3: Salvar as descrições em JSON
+            output_file = os.path.join(output_json_dir, f"{video_name.split('.')[0]}_descriptions.json")
+            save_descriptions_to_json(descriptions, video_name.split('.')[0], output_file)
 
-    # Calculando a similaridade entre o texto e a imagem
-    similarity = torch.cosine_similarity(text_embedding, image_embedding)
-    similarities.append((frame_file, similarity.item()))
+            print(f"✅ Processamento concluído para {video_name}")
 
-# Ordenar os resultados pela maior similaridade
-similarities.sort(key=lambda x: x[1], reverse=True)
+# Definição dos diretórios
+video_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_videos'
+output_base_dir = 'C:/temp'
+output_json_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_description'
 
-# Exibir os frames mais similares
-for frame_file, similarity in similarities[:5]:
-    print(f"Frame: {frame_file}, Similaridade: {similarity}")
+# Criar diretórios de saída se não existirem
+os.makedirs(output_base_dir, exist_ok=True)
+os.makedirs(output_json_dir, exist_ok=True)
+
+# Processar todos os vídeos
+process_all_videos(video_dir, output_base_dir, output_json_dir)

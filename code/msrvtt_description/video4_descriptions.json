@@ -1,0 +1,45 @@
+{
+    "video": "video4",
+    "descriptions": [
+        {
+            "frame": "frame_0000.jpg",
+            "description": "a woman standing in a kitchen"
+        },
+        {
+            "frame": "frame_0001.jpg",
+            "description": "a woman in a kitchen preparing food"
+        },
+        {
+            "frame": "frame_0002.jpg",
+            "description": "a woman is talking on her cell phone"
+        },
+        {
+            "frame": "frame_0003.jpg",
+            "description": "a woman in a kitchen with a knife"
+        },
+        {
+            "frame": "frame_0004.jpg",
+            "description": "a man in a suit and tie is standing in a room"
+        },
+        {
+            "frame": "frame_0005.jpg",
+            "description": "a woman is standing in a kitchen with a knife"
+        },
+        {
+            "frame": "frame_0006.jpg",
+            "description": "a woman standing in a kitchen with a stove"
+        },
+        {
+            "frame": "frame_0007.jpg",
+            "description": "a woman standing in a kitchen with a pizza"
+        },
+        {
+            "frame": "frame_0008.jpg",
+            "description": "a woman in a kitchen"
+        },
+        {
+            "frame": "frame_0009.jpg",
+            "description": "a woman in a kitchen preparing food"
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "video": "video6",
+    "descriptions": [
+        {
+            "frame": "frame_0000.jpg",
+            "description": "a cat and a dog playing in the dirt"
+        },
+        {
+            "frame": "frame_0001.jpg",
+            "description": "a cat and a kitten playing in the dirt"
+        },
+        {
+            "frame": "frame_0002.jpg",
+            "description": "a dog is running on the ground"
+        },
+        {
+            "frame": "frame_0003.jpg",
+            "description": "a cat is standing on the side of a building"
+        },
+        {
+            "frame": "frame_0004.jpg",
+            "description": "a cat is standing on the ground looking at something"
+        },
+        {
+            "frame": "frame_0005.jpg",
+            "description": "a cat is looking at a bird"
+        },
+        {
+            "frame": "frame_0006.jpg",
+            "description": "a cat is sitting on the ground next to a wall"
+        },
+        {
+            "frame": "frame_0007.jpg",
+            "description": "two cats are sitting on the ground"
+        },
+        {
+            "frame": "frame_0008.jpg",
+            "description": "two cats sitting on the ground next to each other cats"
+        },
+        {
+            "frame": "frame_0009.jpg",
+            "description": "a cat and a dog playing in the dirt"
+        },
+        {
+            "frame": "frame_0010.jpg",
+            "description": "a cat is standing on the ground next to a tree"
+        },
+        {
+            "frame": "frame_0011.jpg",
+            "description": "a dog and a cat are playing in the yard"
+        },
+        {
+            "frame": "frame_0012.jpg",
+            "description": "a group of cats playing in the dirt"
+        },
+        {
+            "frame": "frame_0013.jpg",
+            "description": "a cat and a dog are playing together"
+        },
+        {
+            "frame": "frame_0014.jpg",
+            "description": "a cat and a bird are standing in the dirt"
+        },
+        {
+            "frame": "frame_0015.jpg",
+            "description": "a cat and a dog playing together"
+        },
+        {
+            "frame": "frame_0016.jpg",
+            "description": "a dog and a cat are playing in the dirt"
+        }
+    ]
+}
