@@ -41,7 +41,7 @@ export default function SearchComponent() {
     <div className="main-container">
       {/* Parte esquerda com o título estilizado */}
       <div className="left-section">
-        <h1 className="title">📽 Video Retrieval System</h1>
+        <h1 className="title">📽 Video Retrival System</h1>
       </div>
 
       {/* Parte direita com a busca e os vídeos */}
