@@ -53,3 +53,10 @@ Xiamen University, 3DAMO Academy, Alibaba Group.
 ## C4 Model
 
 ![Diagrama C4](./diagramas/c4model.png)
+
+## Solução Proposta
+Nossa solução sobre a proposta se deu a partir da criação de uma API sendo consumida por um frontend, onde disponibilizaria ao usuario um input para inserir a descrição dos videos que ele gostaria que fossem trazidos a ele.
+
+Usamos o dataset MSR-VTT para "povoar" nossa base de dados, ele é um dataset multimodal porém nos nao conseguimos achar o arquivo que continha as descrições dos videos então tivemos que fazer a descrição dos videos usando uma ferramenta chamada BLIP (Bootstrapping Language-Image Pre-training). Ela gera descrições a partir de imagens, portanto, nos tivemos que usar o OpenCV para extrair os frames dos videos para que assim o BLIP utilizasse esses frames e então fizesse as descrições.
+
+Com as descrições realizadas, usamos o CLIP para gerar os embeddings visuais e textuais, comparando com as descrições criadas pelo BLIP e assim gerando a similirade da descrição feita pelo usuario, com a descrição de cada video e assim levando ao usuario os videos relacionados juntamente com a porcentagem dessa similaridade.
