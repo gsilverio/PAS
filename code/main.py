@@ -1,7 +1,17 @@
 import os
+import json
 from extract_frames import extract_frames
 from generate_descriptions import generate_descriptions_from_frames
 from save_descriptions import save_descriptions_to_json
+
+# Definição dos diretórios
+video_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_videos'
+output_base_dir = 'C:/temp'
+output_json_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_description'
+
+# Criar diretórios de saída se não existirem
+os.makedirs(output_base_dir, exist_ok=True)
+os.makedirs(output_json_dir, exist_ok=True)
 
 def process_all_videos(video_dir, output_base_dir, output_json_dir):
     for video_name in os.listdir(video_dir):
@@ -26,14 +36,6 @@ def process_all_videos(video_dir, output_base_dir, output_json_dir):
 
             print(f"✅ Processamento concluído para {video_name}")
 
-# Definição dos diretórios
-video_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_videos'
-output_base_dir = 'C:/temp'
-output_json_dir = 'C:/Users/guilh/OneDrive/Área de Trabalho/PAS - CODE/msrvtt_description'
-
-# Criar diretórios de saída se não existirem
-os.makedirs(output_base_dir, exist_ok=True)
-os.makedirs(output_json_dir, exist_ok=True)
-
-# Processar todos os vídeos
-process_all_videos(video_dir, output_base_dir, output_json_dir)
+if __name__ == "__main__":
+    process_all_videos(video_dir, output_base_dir, output_json_dir)
+    print("\n🎬 Processamento finalizado! Arquivos de descrição gerados.")
